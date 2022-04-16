@@ -56,7 +56,7 @@ function fncGetList(currentPage) {
 
 <div style="width:98%; margin-left:10px;">
 
-<form name="detailForm" action="/listProduct.do?menu=${param.menu } " method="post">
+<form name="detailForm" action="/product/listProduct?menu=${param.menu } " method="post">
 
 <table width="100%" height="37" border="0" cellpadding="0"	cellspacing="0">
 	<tr>
@@ -176,10 +176,10 @@ function fncGetList(currentPage) {
 			<td align="center">${ i }</td>
 			<td></td>
 			<c:if test="${param.menu == 'search' }">
-				<td align="left"><a href="/getProduct.do?prodNo=${product.prodNo}">${product.prodName}</a></td>
+				<td align="left"><a href="/product/getProduct?prodNo=${product.prodNo}">${product.prodName}</a></td>
 			</c:if>
 			<c:if test="${param.menu == 'manage'}">
- 		 		<td align="left"><a href="/updateProductView.do?prodNo=${product.prodNo}">${product.prodName}</a></td>
+ 		 		<td align="left"><a href="/product/updateProduct?prodNo=${product.prodNo}">${product.prodName}</a></td>
  		 	</c:if>
 			<td></td>
 			<td align="left">${product.price}</td>
@@ -202,21 +202,7 @@ function fncGetList(currentPage) {
 		<td align="center">
 		
 			 <input type="hidden" id="currentPage" name="currentPage" value=""/>
-			<%--<% if( resultPage.getCurrentPage() <= resultPage.getPageUnit() ){ %>
-					◀ 이전
-			<% }else{ %>
-					<a href="javascript:fncGetProductList('<%=resultPage.getCurrentPage()-1%>')">◀ 이전</a>
-			<% } %>
-
-			<%	for(int i=resultPage.getBeginUnitPage();i<= resultPage.getEndUnitPage() ;i++){	%>
-					<a href="javascript:fncGetProductList('<%=i %>');"><%=i %></a>
-			<% 	}  %>
-	
-			<% if( resultPage.getEndUnitPage() >= resultPage.getMaxPage() ){ %>
-					이후 ▶
-			<% }else{ %>
-					<a href="javascript:fncGetProductList('<%=resultPage.getEndUnitPage()+1%>')">이후 ▶</a>
-			<% } %> --%>
+			
 		
 			<jsp:include page="../common/pageNavigator.jsp"/>
 
@@ -227,7 +213,7 @@ function fncGetList(currentPage) {
 <!--  페이지 Navigator 끝 -->
 
 </form>
-
 </div>
+
 </body>
 </html>
