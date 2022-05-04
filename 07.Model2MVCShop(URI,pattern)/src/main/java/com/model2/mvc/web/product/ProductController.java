@@ -61,7 +61,7 @@ public class ProductController {
 		// Business Logic
 		productService.addProduct(product);
 
-		return "redirect:/product/addProduct?prodNo=" + product.getProdNo();
+		return "forward:/product/getProduct.jsp";
 	}
 
 	@RequestMapping(value="getProduct", method=RequestMethod.GET)
